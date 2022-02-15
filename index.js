@@ -18,8 +18,22 @@ function generatePin() {
 }
 // Event deligation bubbling process to get input digits from calculator 
 document.getElementById('digits').addEventListener('click', function (event) {
+    // debugger;
     const getClickedDigit = event.target;
     const getDisplayInput = document.getElementById('display-digit');
-    getDisplayInput.value = getClickedDigit.innerText;
+    if (isNaN(getClickedDigit.innerText /* || getClickedDigit.length > 6 tried this function validation but failed.*/)) {
+        /* no command  means will happen nothing*/
+        if (getClickedDigit.innerText == 'C') {
+            getDisplayInput.value = '';
+        }
+
+        /* else if (getClickedDigit.innerText == '<') {
+            getDisplayInput.value = getDisplayInput.value - getClickedDigit.innerText;
+        } tried this function validation but failed. */
+    }
+    else {
+        getDisplayInput.value = getDisplayInput.value + getClickedDigit.innerText;
+    }
+
 
 })
