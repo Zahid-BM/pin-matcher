@@ -34,6 +34,19 @@ document.getElementById('digits').addEventListener('click', function (event) {
     else {
         getDisplayInput.value = getDisplayInput.value + getClickedDigit.innerText;
     }
-
-
+})
+// matching pin and submit button event handler 
+document.getElementById('btn-submit').addEventListener('click', function () {
+    const getInputPin = document.getElementById('input-pin').value;
+    const getDisplayInput = document.getElementById('display-digit').value;
+    const getErrorMessage = document.getElementById('failure-message');
+    const getSuccessMessage = document.getElementById('success-message');
+    if (getInputPin == getDisplayInput) {
+        getErrorMessage.style.display = 'none';
+        getSuccessMessage.style.display = 'block';
+    }
+    else {
+        getErrorMessage.style.display = 'block';
+        getSuccessMessage.style.display = 'none';
+    }
 })
